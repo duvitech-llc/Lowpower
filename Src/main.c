@@ -50,14 +50,6 @@ osThreadId defaultTaskHandle;
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
 
-#ifdef __GNUC__
-	/* With GCC/RAISONANCE, small printf (option LD Linker->Libraries->Small printf
-		 set to 'Yes') calls __io_putchar() */
-	#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
-#else
-	#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
-#endif /* __GNUC__ */
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -73,20 +65,6 @@ void StartDefaultTask(void const * argument);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
-/**
-  * @brief  Retargets the C library printf function to the USART.
-  * @param  None
-  * @retval None
-  */
-PUTCHAR_PROTOTYPE
-{
-  /* Place your implementation of fputc here */
-  /* e.g. write a character to the EVAL_COM1 and Loop until the end of transmission */
-
-	HAL_UART_Transmit(&huart2, (uint8_t *)&ch, 1, 0x0f);
-
-  return ch;
-}
 
 /* USER CODE END 0 */
 
@@ -373,8 +351,7 @@ void StartDefaultTask(void const * argument)
 {
 
   /* USER CODE BEGIN 5 */
- // printf("\n\rDuvitech \302\2512016\n\r");
- // printf("Low Power Demo\n\r\n\r");
+  printf("Low Power Demo\n\r\n\r");
   /* Infinite loop */
   for(;;)
   {
