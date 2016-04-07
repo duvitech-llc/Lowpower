@@ -89,7 +89,7 @@ int main(void)
   MX_USART2_UART_Init();
 
   /* USER CODE BEGIN 2 */
-  HAL_UART_Transmit(&huart2, (uint8_t *)"\n\rDuvitech \302\2512016\n\r\n\r", 21, 0x0f);
+  HAL_UART_Transmit(&huart2, (uint8_t *)"\n\rDuvitech \302\2512016\n\r", 19, 0x0f);
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN RTOS_MUTEX */
